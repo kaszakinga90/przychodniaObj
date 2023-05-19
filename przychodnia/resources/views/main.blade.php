@@ -12,14 +12,14 @@
 
 			<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white;">
 				<div class="container-fluid px-4 py-2 navCont">
-				  <a class="navbar-brand">
+				  <a class="navbar-brand" href='/'>
 					<h3 class="offcanvas-title ps-4"><i class="bi bi-brightness-high fs-3 pt-0 pe-3"></i>Promyczek</h3>
 				  </a>
 
 				  <!-- user section -->
 				  <div class="btn-group ">
 					<button type="button pt-0" class="btn fs-4 mx-0">
-					  <a class="dropdown-item fs-4" style="color:#5d6778"><i class="bi bi-person-circle pt-0 fs-3 pe-3" style="color:#5d6778"></i>Zaloguj się</a>
+					  <a class="dropdown-item fs-4" style="color:#5d6778" href='/login'><i class="bi bi-person-circle pt-0 fs-3 pe-3" style="color:#5d6778"></i>Zaloguj się</a>
 					</button>
 				  </div>
 				</div>

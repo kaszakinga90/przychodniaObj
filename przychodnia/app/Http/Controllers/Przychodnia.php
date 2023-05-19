@@ -143,6 +143,6 @@ class Przychodnia extends Controller
 	
 	public function __invoke(){	//public, żeby działało w Laravelu		
 		//return Przychodnia::naglowek("Strona główna") . self::menu() . self::stopka();
-		return view('main');
+		return view('main');	//tu powinna być ogólna strona główna zagnieżdżona w main/layout, który dostarcza nagłówek i stopkę
 	}
 }
