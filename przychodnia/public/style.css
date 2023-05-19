@@ -1,0 +1,155 @@
+.headerSettings {
+    background-color: black;
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.239) !important;
+}
+
+.bodySettings {
+    /* max-width: 1200px; */
+    background-color: #f5f6fe;
+}
+
+.mainContainer {
+    max-width: 1200px;
+}
+
+.navCont {
+    max-width: 1200px;
+}
+
+.navbar-brand {
+    display: none;
+    /* color:#5d6778; */
+    color: rgba(39, 112, 57, 0.846) !important;
+}
+
+.doUkrycia {
+    display: block;
+}
+
+.accountSection {
+    display: inline-block;
+}
+
+.accountSection .dropdown-toggle {
+    position: relative;
+    color: #5d6778;
+}
+
+.accountSection .dropdown-toggle::after{
+    margin: 0px;
+}
+
+.titleOfPage {
+    color:#5d6778;
+}
+
+.nav-link {
+    color:#5d6778;
+}
+
+.navbar-toggler .hover {
+    color:#15408b;
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(29, 147, 58, 0.846);
+    border-color: transparent;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.03rem;
+    border-color: rgb(29, 147, 58, 0.846);
+}
+
+.navList {
+    list-style-type: none;
+}
+
+.navList >li {
+    padding-bottom: 5px;
+}
+
+.nav-link:hover {
+    background-color: rgba(67, 165, 67, 0.437) !important;
+    color:white !important;
+}
+
+#offcanvasExampleLabel {
+    color: green;
+}
+
+.accountSection .dropdown-menu {
+    border: none;
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.139);
+}
+
+.hrSettings {
+    margin: 5rem 0;
+    opacity: .25;
+}
+
+.myBtn {
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(0, 128, 0, 0.793);
+    border-radius: 50%;
+}
+
+.pMyBtn {
+    font-size: 44px;
+    color: rgba(0, 128, 0, 0.793);
+    align-items: center;
+}
+
+.cardFromMain {
+    color: rgba(0, 0, 0, 0.685);
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.wholeCardMain {
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.179) !important;
+}
+
+.carousel .carousel-inner {
+    height:500px
+}
+
+.carousel-inner .carousel-item img {
+    min-height:300px;
+    /* //prevent it from stretch in screen size < than 768px */
+    object-fit:cover
+}
+
+@media (max-width: 990px) {
+    .offcanvas {
+        display: none !important;
+    }
+    .modal-backdrop.show {
+        opacity: 0 !important;
+    }
+    .panelPacjentaTitle {
+        display: none;
+    }
+}
+
+@media (min-width: 991px){
+    .doUkrycia {
+        display: none;
+    }
+    .navbar-brand {
+        display: flex;
+    }
+}
+
+@media(max-width:700px){
+    .carousel .carousel-inner{
+    /* //prevent it from adding a white space between carousel and container elements */
+    height:auto;
+    }
+}
