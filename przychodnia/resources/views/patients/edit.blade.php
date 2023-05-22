@@ -2,6 +2,8 @@
 
 @section('content')
 
+    <div>Halo halo tu test :)</div>
+
     <div class="col-sm-10 col-md-8 col-xl-6 mx-auto ">
         <h1 class="pt-5 pb-3">Moje dane</h1><br>
 
