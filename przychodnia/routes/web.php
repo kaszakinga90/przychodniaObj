@@ -35,6 +35,7 @@ Route::controller(PatientController::class)->group(function() {
     Route::get('/patients/{patient}/edit', 'edit')->name('patients.edit');
     Route::post('/patients/{patient}', 'update')->name('patients.update');
     Route::delete('/patients/{patient}', 'destroy')->name('patients.destroy');
+    Route::post('/patients/{patient}/delete', 'delete')->name('patients.delete');
 });
 
 Auth::routes();

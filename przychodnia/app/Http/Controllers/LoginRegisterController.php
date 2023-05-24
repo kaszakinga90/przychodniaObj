@@ -86,11 +86,11 @@ class LoginRegisterController extends Controller
         {
             $request->session()->regenerate();
             return redirect()->route('dashboard')
-                ->withSuccess('You have successfully logged in!');
+                ->withSuccess('Zostałeś zalogowany do portalu!');
         }
 
         return back()->withErrors([
-            'login' => 'Your provided credentials do not match in our records.',
+            'login' => 'Podane dane nie są zgodne z naszą bazą.',
         ])->onlyInput('login');
 
     }
@@ -110,7 +110,7 @@ class LoginRegisterController extends Controller
 
         return redirect()->route('login')
             ->withErrors([
-            'login' => 'Please login to access the dashboard. - Auth::check nie działa',
+            'login' => 'Zaloguj się, aby przejść do portalu.',
         ])->onlyInput('login');
     }
 
