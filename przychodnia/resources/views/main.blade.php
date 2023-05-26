@@ -31,9 +31,10 @@
 
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
                 <div class="container-fluid px-4 py-2 navCont">
-                    <a class="navbar-brand">
+                    <a class="navbar-brand" href="{{ URL('/') }}">
                         <h3 class="offcanvas-title ps-4"><i class="bi bi-brightness-high fs-3 pt-0 pe-3"></i>Promyczek</h3>
                     </a>
+                    @auth
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                         <div class="offcanvas-header">
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -49,7 +50,7 @@
                                 </li>
                                 <hr class="my-1" style="width: 50%;">
                                 <li class="nav-item">
-                                    <a class="nav-link ms-3" href="twoje-wizyty.php"></i>Zaplanowane wizyty</a>
+                                    <a class="nav-link ms-3" href="/visits/showPlanned"></i>Zaplanowane wizyty</a>
                                 </li>
                                 <hr class="my-1" style="width: 50%;">
                                 <li class="nav-item">
@@ -88,37 +89,36 @@
                                 <a class="offcanvas-title ps-4 fs-5" id="offcanvasExampleLabel">Panel pacjenta</a>
                             </li>
                             <span id="doUkrycia">
-            <li class="nav-item mt-4">
-              <a class="nav-link" href="/patients/{{ Auth::user()->id }}/edit"><i class="bi bi-person-lines-fill me-2 ps-3"></i>Moje dane</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="bi bi-alarm me-2 ps-3"></i>Wizyty</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link ms-4 ps-3" href="twoje-wizyty.php">Zaplanowane wizyty</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link ms-4 ps-3" href="umow-wizyte.php">Umów wizytę</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="recepty.php"><i class="bi bi-file-earmark-text me-2 ps-3"></i>Recepty</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="badania.php"><i class="bi bi-clipboard-data me-2 ps-3"></i>Badania</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="historia.php"><i class="bi bi-folder2-open me-2 ps-3"></i>Historia</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="placowki.php"><i class="bi bi-houses me-2 ps-3"></i>Nasze placówki</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="autor.php"><i class="bi bi-houses me-2 ps-3"></i>Autor</a>
-            </li>
-          </span>
+                                <li class="nav-item mt-4">
+                                <a class="nav-link" href="/patients/{{ Auth::user()->id }}/edit"><i class="bi bi-person-lines-fill me-2 ps-3"></i>Moje dane</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="bi bi-alarm me-2 ps-3"></i>Wizyty</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link ms-4 ps-3" href="twoje-wizyty.php">Zaplanowane wizyty</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link ms-4 ps-3" href="umow-wizyte.php">Umów wizytę</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="recepty.php"><i class="bi bi-file-earmark-text me-2 ps-3"></i>Recepty</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="badania.php"><i class="bi bi-clipboard-data me-2 ps-3"></i>Badania</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="historia.php"><i class="bi bi-folder2-open me-2 ps-3"></i>Historia</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="placowki.php"><i class="bi bi-houses me-2 ps-3"></i>Nasze placówki</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="autor.php"><i class="bi bi-houses me-2 ps-3"></i>Autor</a>
+                                </li>
+                            </span>
                         </ul>
                     </div>
-
                     <!-- user section -->
                     <div class="btn-group accountSection">
                         <button type="button pt-0" class="btn dropdown-toggle fs-4 mx-0 dropdownHide1" data-bs-auto-close="true" data-bs-toggle="dropdown" aria-expanded="false">
@@ -138,12 +138,21 @@
                             </li>
                         </ul>
                     </div>
+                    @else
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link {{ (request()->is('login')) ? 'active' : '' }}" href="{{ route('login') }}">Logowanie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ (request()->is('register')) ? 'active' : '' }}" href="{{ route('register') }}">Rejestracja</a>
+                            </li>
+                        </ul>
+                    </div>
+                    @endauth
                 </div>
             </nav>
         </header>
-
-
-
 
 
 		<body class="bodySettings">

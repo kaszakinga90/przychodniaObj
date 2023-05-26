@@ -1,9 +1,9 @@
-@extends('auth.layouts')
+@extends('main')
 
 @section('content')
 
-<div class="row justify-content-center mt-5">
-    <div class="col-md-8">
+
+    <div class="col-sm-10 col-md-8 col-xl-6 mx-auto">
 
         <div class="card">
             <div class="card-header">Rejestracja</div>
@@ -60,6 +60,6 @@
             </div>
         </div>
     </div>    
-</div>
+
     
 @endsection

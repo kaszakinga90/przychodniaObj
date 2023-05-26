@@ -9,14 +9,11 @@ class PatientController extends Controller
 {
     /**
      * Instantiate a new PatientController instance.
-     */
-    /*
+     */    
     public function __construct()
     {
-        $this->middleware('guest')->except([
-            'logout', 'dashboard'
-        ]);
-    } */
+        $this->middleware('auth');
+    } 
     //TODO    - metoda wyswietlajaca liste pacjentów
     public function index()
     {
@@ -40,7 +37,8 @@ class PatientController extends Controller
             'FirstName' => 'required|string|max:64',
             'LastName' => 'required|string|max:64',
             'BirthDate' => 'nullable|date',
-            'PESEL' => 'nullable|min:11|max:11'
+            'PESEL' => 'nullable|digits:11'
+            //'PESEL' => 'nullable|min:11|max:11|numeric'
             ], 
             [
             'login.max' => 'Login nie może być dłuższy niż 32 znaki.',
@@ -49,8 +47,7 @@ class PatientController extends Controller
             'FirstName.required' => 'Pole Imię musi być uzupełnione.',
             'LastName.max' => 'Nazwisko nie może być dłuższe niż 64 znaki.',
             'LastName.required' => 'Pole Nazwisko musi być uzupełnione.',
-            'PESEL.min' => 'Numer PESEL musi składać się z 11 cyfr.',
-            'PESEL.max' => 'Numer PESEL musi składać się z 11 cyfr.',
+            'PESEL' => 'Numer PESEL musi składać się z 11 cyfr.',
             'BirthDate.date' => 'Wprowadź prawidłową datę w formacie yyyy-mm-dd.',
         ]);
         

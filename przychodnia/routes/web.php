@@ -34,9 +34,13 @@ use App\Http\Controllers\PatientController;
 Route::controller(PatientController::class)->group(function() {
     Route::get('/patients/{patient}/edit', 'edit')->name('patients.edit');
     Route::post('/patients/{patient}', 'update')->name('patients.update');
-    Route::delete('/patients/{patient}', 'destroy')->name('patients.destroy');
+    //Route::delete('/patients/{patient}', 'destroy')->name('patients.destroy');
     Route::post('/patients/{patient}/delete', 'delete')->name('patients.delete');
 });
+
+use App\Http\Controllers\VisitController;
+Route::get('/visits/showPlanned', [VisitController::class, 'showPlanned']);
+
 
 Auth::routes();
 

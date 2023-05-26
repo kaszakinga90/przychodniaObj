@@ -68,9 +68,6 @@
                     <button class="btn btn-danger" type="submit">Usuń konto</button>
                 </form>
             </div>
-            <div class="col-12">
-                <input type='submit' value='Usuń konto' onClick="action='patients/{{Auth::user()->id}}/delete'">
-            </div>
     </div>
 
 @endsection
