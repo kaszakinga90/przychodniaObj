@@ -45,3 +45,8 @@ Route::get('/visits/showPlanned', [VisitController::class, 'showPlanned']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+use App\Http\Controllers\DocumentController;
+Route::get('/documents/showPrescriptions', [DocumentController::class, 'showPrescriptions']);
+
+

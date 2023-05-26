@@ -58,7 +58,7 @@
                                 </li>
                                 <hr class="my-1" style="width: 50%;">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="recepty.php"><i class="bi bi-file-earmark-text me-2"></i>Recepty</a>
+                                    <a class="nav-link" href="/documents/showPrescriptions"><i class="bi bi-file-earmark-text me-2"></i>Recepty</a>
                                 </li>
                                 <hr class="my-1" style="width: 50%;">
                                 <li class="nav-item">
@@ -96,13 +96,13 @@
                                 <a class="nav-link" href="#"><i class="bi bi-alarm me-2 ps-3"></i>Wizyty</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link ms-4 ps-3" href="twoje-wizyty.php">Zaplanowane wizyty</a>
+                                <a class="nav-link ms-4 ps-3" href="/visits/showPlanned">Zaplanowane wizyty</a>
                                 </li>
                                 <li class="nav-item">
                                 <a class="nav-link ms-4 ps-3" href="umow-wizyte.php">Umów wizytę</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="recepty.php"><i class="bi bi-file-earmark-text me-2 ps-3"></i>Recepty</a>
+                                <a class="nav-link" href="/documents/showPrescriptions"><i class="bi bi-file-earmark-text me-2 ps-3"></i>Recepty</a>
                                 </li>
                                 <li class="nav-item">
                                 <a class="nav-link" href="badania.php"><i class="bi bi-clipboard-data me-2 ps-3"></i>Badania</a>
