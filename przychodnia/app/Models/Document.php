@@ -9,7 +9,8 @@ class Document extends Model
 {
     use HasFactory;
 
-    protected $attributes = [
+    //protected $attributes = [
+    protected $fillable = [
         'Type',
         'DoctorId',
         'PatientId',
@@ -26,8 +27,8 @@ class Document extends Model
         return $this->belongsTo(Doctor::class, 'DoctorId');
     }
     //Metoda zwraca wszystkich lekarzy
-    public function doctors() {
-        return Doctor::all();
-    }
+//    public function doctors() {
+//        return Doctor::all();
+//    }
 
 }
