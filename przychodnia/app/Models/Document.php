@@ -29,4 +29,5 @@ class Document extends Model
     public function doctors() {
         return Doctor::all();
     }
+
 }
