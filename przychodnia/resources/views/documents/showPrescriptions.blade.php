@@ -1,18 +1,30 @@
 @section('content')
     @extends('main')
 
-    @php $naglowki = array("Rodzaj", "Lekarz", "Data", "Sygnatura"); @endphp
+    @php
+        $naglowki = array("#", "Data wystawienia", "Sygnatura", "Lekarz");
+        $counter = 1;
+    @endphp
+
     <form method='POST'>
         @csrf
-        <b>Recepty</b><br>
-        <table border = 1><tr>
+        <h1 class="pt-5 pb-3">Twoje recepty</h1><br>
+
+        @if($prescriptions->isEmpty())
+            <p>No results found</p>
+        @else
+        <table class="table table-hover mt-4">
+            <thead>
+            <tr>
                 @foreach($naglowki as $naglowek)
-                    <td><b>{{$naglowek}}</b></td>
+                    <th scope="col"><b>{{$naglowek}}</b></th>
                 @endforeach
             </tr>
+            </thead>
 
             @foreach($prescriptions as $prescription)
                 <tr>
+                    <td>{{$counter++}}</td>
                     @foreach($prescription->getAttributes() as $p=>$pole)
                         @switch($p)
                             @case('IssueDate')
@@ -25,13 +37,14 @@
                     @endforeach
                     @foreach($prescription->getAttributes() as $p=>$pole)
                         @if($p == 'DoctorId')
-                            <td>{{$prescription->doctor->FirstName}} {{$prescription->doctor->LastName}}</td>
+                            <td>{{$prescription->doctor->FirstName ?? 'No data'}} {{$prescription->doctor->LastName ?? 'No data'}}</td>
                         @endif
                     @endforeach
                 </tr>
             @endforeach
 
         </table>
+        @endif
     </form>
 
 @endsection

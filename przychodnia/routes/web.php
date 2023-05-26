@@ -48,5 +48,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 use App\Http\Controllers\DocumentController;
 Route::get('/documents/showPrescriptions', [DocumentController::class, 'showPrescriptions']);
+Route::get('/documents/showReferrals', [DocumentController::class, 'showReferrals']);
 
-
+use App\Http\Controllers\FacilitiesController;
+Route::get('/facilities/showFacilities', [FacilitiesController::class, 'showFacilities']);

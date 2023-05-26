@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Document;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentController extends Controller
 {
@@ -13,28 +14,25 @@ class DocumentController extends Controller
     }
 
     public function showPrescriptions() {
-        $prescriptions = Document::all();
-        /*
-        $id = Auth::user()->id;
-        $dzis = date("Y-m-d");
 
-        $visits = Visit::whereHas('patient', function ($query) {
-                        $query->where('PatientId', '=', '$id');
-            })->get();
-        */
-        return view('documents.showPrescriptions', ['$prescriptions'=>$prescriptions]);
+        $user = Auth::user()->getAuthIdentifier();
+        //$userId = $user->id;
+
+        $prescriptions = Document::where('Type', 'recepta')
+                                ->where('PatientId', $user)
+                                ->get();
+
+        //return view('documents.showPrescriptions', ['$prescriptions'=>$prescriptions]);
+        return view('documents.showPrescriptions')->with('prescriptions', $prescriptions);
     }
     public function showReferrals() {
-        $referrals = Document::all();
-        /*
-        $id = Auth::user()->id;
-        $dzis = date("Y-m-d");
+        $user = Auth::user()->getAuthIdentifier();
 
-        $visits = Visit::whereHas('patient', function ($query) {
-                        $query->where('PatientId', '=', '$id');
-            })->get();
-        */
-        return view('documents.showReferrals', ['$referrals'=>$referrals]);
+        $referrals = Document::where('Type', 'skierowanie')
+            ->where('PatientId', $user)
+            ->get();
+
+        return view('documents.showReferrals')->with('referrals', $referrals);
     }
 
 
