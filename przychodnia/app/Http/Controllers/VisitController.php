@@ -71,7 +71,7 @@ class VisitController extends Controller
             $spec = Doctor::select('Specialization')->distinct()->orderBy('Specialization', 'asc')->first();
             $visits = Visit::all();
         }
-
+        
         $visits = $this->applyFilters($request);
         //nie działa
         //$visits = Visit::where('VisitDate', '>=', $dzis)->applyFilters($request)->orderBy('VisitDate', 'asc')->get();
@@ -91,7 +91,7 @@ class VisitController extends Controller
         if ($day = $request->input('date')) {
             $query->where('VisitDate', '>=', $day);
         }
-        $query->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc');
+        $query->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc')->orderBy('VisitTime', 'asc');
 
         return $query->get();
     }

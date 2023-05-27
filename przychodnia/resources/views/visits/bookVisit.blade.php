@@ -25,28 +25,13 @@
         </div>
         <button type="submit" class="btn btn-primary">Filtruj</button>
     </form>
+    </div>
+            <a href='/visits/bookVisit'><button type='button' class='btn btn-warning'>Wyczyść filtry</button>
+        </a></div>
 
     <form method='POST'>
 		@csrf
 
-        <div class='dropdown pb-4'>
-            <button class='btn btn-secondary dropdown-toggle me-3' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>Data</button>
-            <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-                @foreach($days as $day)
-                    <li><a class='dropdown-item' href='/visits/bookVisit/{{$day->VisitDate}}'>{{$day->VisitDate}}</a></li>
-                @endforeach
-            </ul>
-        </div>
-        <div class='dropdown pb-4'>
-            <button class='btn btn-secondary dropdown-toggle me-3' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>Specjalizacja</button>
-            <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-                @foreach($specializations as $spec)
-                    <li><a class='dropdown-item' href='/visits/bookVisit/{{$spec->Specialization}}'>{{$spec->Specialization}}</a></li>
-                @endforeach
-            </ul>
-        </div>
-            <a href='/visits/bookVisit'><button type='button' class='btn btn-warning'>Wyczyść filtry</button>
-        </a></div>
 		<table class='table table-hover mx-auto'><tr>
             @foreach($naglowki as $naglowek) 
 			    <td><b>{{$naglowek}}</b></td>
