@@ -40,10 +40,10 @@ Route::controller(PatientController::class)->group(function() {
 
 use App\Http\Controllers\VisitController;
 Route::get('/visits/showPlanned', [VisitController::class, 'showPlanned']);
+Route::post('/visits/showPlanned/{id}', [VisitController::class, 'cancel']);
 Route::get('/visits/index', [VisitController::class, 'index'])->name('visits.index');
-Route::get('/visits/bookVisit', [VisitController::class, 'bookVisit']);
-Route::get('/visits/bookVisit/{spec}', [VisitController::class, 'bookVisit']);
-Route::get('/visits/bookVisit/{day}', [VisitController::class, 'bookVisit']);
+Route::post('/visits/bookVisit/{id}', [VisitController::class, 'bookVisit']);
+Route::get('/visits/history', [VisitController::class, 'history']);
 
 
 Auth::routes();

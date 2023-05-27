@@ -66,7 +66,7 @@
                                 </li>
                                 <hr class="my-1" style="width: 50%;">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="historia.php"><i class="bi bi-folder2-open me-2"></i>Historia</a>
+                                    <a class="nav-link" href="/visits/history"><i class="bi bi-folder2-open me-2"></i>Historia</a>
                                 </li>
                                 <hr class="my-1" style="width: 50%;">
                                 <li class="nav-item">
@@ -108,7 +108,7 @@
                                 <a class="nav-link" href="/documents/showReferrals"><i class="bi bi-clipboard-data me-2 ps-3"></i>Badania</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="historia.php"><i class="bi bi-folder2-open me-2 ps-3"></i>Historia</a>
+                                <a class="nav-link" href="/visits/history"><i class="bi bi-folder2-open me-2 ps-3"></i>Historia</a>
                                 </li>
                                 <li class="nav-item">
                                 <a class="nav-link" href="/facilities/showFacilities"><i class="bi bi-houses me-2 ps-3"></i>Nasze placówki</a>

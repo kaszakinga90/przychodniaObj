@@ -6,6 +6,7 @@ use App\Models\Visit;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class VisitController extends Controller
 {
@@ -18,43 +19,21 @@ class VisitController extends Controller
     } 
 
     public function showPlanned() {
-		$visits = Visit::all();
-        /*
-        $id = Auth::user()->id;
+		$id = Auth::user()->id;
         $dzis = date("Y-m-d");
+        $visits = Visit::where('PatientId', '=', $id)->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc')->orderBy('VisitTime', 'asc')->get();
 
-        $visits = Visit::whereHas('patient', function ($query) {
-                        $query->where('PatientId', '=', '$id');
-            })->get();
-        */
 		return view('visits.showPlanned', ['visits'=>$visits]);
 	}
 
-    public function bookVisit($spec = null, $day = null) {
-        $dzis = date("Y-m-d");
-        $specs = Doctor::select('Specialization')->distinct()->orderBy('Specialization', 'asc')->get();
-        $days = Visit::select('VisitDate')->distinct()->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc')->get();
-        $visits = Visit::all();
-        if ($spec != null)
-        {
-            $doctorIds = Doctor::where('Specialization', $spec)->distinct()->pluck('DoctorId');
-            $visits = Visit::whereIn('DoctorId', $doctorIds)->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc')->get();
-        }
-        if ($day != null)
-        {
-            $visits = Visit::where('VisitDate', '>=', $day)->get();
-        }
+    public function cancel($VisitId) {
+        $visit = Visit::find($VisitId);
+        $visit->PatientId = null;
+        $visit->save();
 
-        /*
-        $id = Auth::user()->id;
-        $dzis = date("Y-m-d");
-
-        $visits = Visit::whereHas('patient', function ($query) {
-                        $query->where('PatientId', '=', '$id');
-            })->get();
-        */
-		return view('visits.bookVisit', ['visits'=>$visits, 'days'=>$days, 'specializations'=>$specs]);
-	}
+        return redirect()->route('dashboard')
+            ->withSuccess('Pomyślnie odwołano wizytę.');
+    }
     
     public function index(Request $request) {
         $dzis = date("Y-m-d");
@@ -91,9 +70,28 @@ class VisitController extends Controller
         if ($day = $request->input('date')) {
             $query->where('VisitDate', '>=', $day);
         }
-        $query->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc')->orderBy('VisitTime', 'asc');
+        $query->where('PatientId', '=', null)->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc')->orderBy('VisitTime', 'asc');
 
         return $query->get();
     }
 
+    public function bookVisit($VisitId) {
+        $visit = Visit::find($VisitId);
+        $patientId = Auth::user()->id;
+        $visit->PatientId = $patientId;
+        $visit->save();
+        $doctor = Doctor::find($visit->DoctorId);
+        
+        return redirect()->route('dashboard')
+            ->withSuccess('Pomyślnie dokonano zapisu do dr ' . $doctor->FirstName . " " . $doctor->LastName . 
+                " na dzień " . $visit->VisitDate . " o godzinie " . $visit->VisitTime . ".");
+	}
+
+    public function history() {
+		$id = Auth::user()->id;
+        $dzis = date("Y-m-d");
+        $visits = Visit::where('PatientId', '=', $id)->where('VisitDate', '<', $dzis)->orderBy('VisitDate', 'desc')->orderBy('VisitTime', 'desc')->get();
+
+		return view('visits.history', ['visits'=>$visits]);
+	}
 }

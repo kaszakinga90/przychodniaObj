@@ -10,6 +10,7 @@ class Visit extends Model
     use HasFactory;
 
     protected $attributes = [
+        //'VisitId',
         'DoctorId',
         'PatientId',
         'VisitDate',
@@ -19,6 +20,7 @@ class Visit extends Model
     // Tabela w BD
     protected $table = 'visit';
     public $timestamps = false;
+    //protected $primaryKey = 'VisitId';
 
     //Metoda zwracająca obiekt Doctor przy wyświetlaniu wizyt
     public function doctor() {

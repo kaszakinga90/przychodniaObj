@@ -26,7 +26,7 @@
         <button type="submit" class="btn btn-primary">Filtruj</button>
     </form>
     </div>
-            <a href='/visits/bookVisit'><button type='button' class='btn btn-warning'>Wyczyść filtry</button>
+            <a href='/visits/index'><button type='button' class='btn btn-warning'>Wyczyść filtry</button>
         </a></div>
 
     <form method='POST'>
@@ -55,8 +55,8 @@
                         <td>{{$visit->doctor->Specialization}}</td>
                     @endif
 				@endforeach
-				<td align='center'>
-					<input type='submit' class='btn btn-success' value='Umów wizytę' onClick="action='/'"></td>	
+				    <td align='center'>
+					    <input type='submit' class='btn btn-success' value='Umów wizytę' onClick="action='/visits/bookVisit/{{ $visit->id }}'"></td>	
 				</tr>	
 			@endforeach
 
