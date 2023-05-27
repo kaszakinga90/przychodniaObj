@@ -40,6 +40,10 @@ Route::controller(PatientController::class)->group(function() {
 
 use App\Http\Controllers\VisitController;
 Route::get('/visits/showPlanned', [VisitController::class, 'showPlanned']);
+Route::get('/visits/index', [VisitController::class, 'index'])->name('visits.index');
+Route::get('/visits/bookVisit', [VisitController::class, 'bookVisit']);
+Route::get('/visits/bookVisit/{spec}', [VisitController::class, 'bookVisit']);
+Route::get('/visits/bookVisit/{day}', [VisitController::class, 'bookVisit']);
 
 
 Auth::routes();

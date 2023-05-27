@@ -22,9 +22,9 @@ class PatientController extends Controller
     }
 
     // Metoda do wyświetlania formularza edycji pacjenta
-    public function edit($patient)
+    public function edit($id)
     {
-        $patient = Patient::find($patient);
+        $patient = Patient::find($id);
         return view('patients.edit', ['$patient' => $patient]);
     }
 
@@ -74,7 +74,6 @@ class PatientController extends Controller
         return redirect()->route('patients.index')->with('success', 'Pacjent został usunięty.');
     }
 
-    //public function delete(Request $request, $id)
     public function delete(Request $request, $id)
     {
         $patient = Patient::find($id);
