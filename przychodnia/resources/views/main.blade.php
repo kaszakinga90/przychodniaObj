@@ -73,9 +73,9 @@
                                     <a class="nav-link" href="/facilities/showFacilities"><i class="bi bi-houses me-2"></i>Nasze placówki</a>
                                 </li>
                                 <hr class="my-1" style="width: 50%;">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="autor.php"><i class="bi bi-houses me-2"></i>Autor</a>
-                                </li>
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="autor.php"><i class="bi bi-houses me-2"></i>Autor</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                     </div>
@@ -113,9 +113,9 @@
                                 <li class="nav-item">
                                 <a class="nav-link" href="/facilities/showFacilities"><i class="bi bi-houses me-2 ps-3"></i>Nasze placówki</a>
                                 </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="autor.php"><i class="bi bi-houses me-2 ps-3"></i>Autor</a>
-                                </li>
+{{--                                <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="autor.php"><i class="bi bi-houses me-2 ps-3"></i>Autor</a>--}}
+{{--                                </li>--}}
                             </span>
                         </ul>
                     </div>
@@ -131,7 +131,7 @@
                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                <i class="bi bi-box-arrow-right ms-3 fs-5">Logout</i></a>
+                                <i class="bi bi-box-arrow-right ms-3 fs-5 me-3"></i>Logout</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
                                 </form>
@@ -156,7 +156,8 @@
 
 
 		<body class="bodySettings">
-        <div class="container mainContainer d-flex py-3">
+{{--        <div class="container mainContainer d-flex py-3">--}}
+        <div class="container mainContainer mx-auto py-3">
 
             <!-- Main content for site -->
 
@@ -178,8 +179,11 @@
 
         </body>
 
-		<footer class="container pb-5">
-				<p class="ps-5">Designed by Kinga Kasza & Karol Marciniak</p>
+
+		<footer class="container pb-4 pt-0">
+            <hr>
+                <p class="ps-5 mb-0">Designed by Kinga Kasza & Karol Marciniak</p>
+
 		</footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

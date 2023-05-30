@@ -9,8 +9,8 @@ class Document extends Model
 {
     use HasFactory;
 
-    //protected $attributes = [
-    protected $fillable = [
+    protected $attributes = [
+    //protected $fillable = [
         'Type',
         'DoctorId',
         'PatientId',
