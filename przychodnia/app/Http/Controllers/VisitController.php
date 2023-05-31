@@ -39,23 +39,10 @@ class VisitController extends Controller
         $dzis = date("Y-m-d");
         $specs = Doctor::select('Specialization')->distinct()->orderBy('Specialization', 'asc')->get();
         $days = Visit::select('VisitDate')->distinct()->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc')->get();
-        
-        $spec = $request->input('spec');
-        if(!empty($spec))
-        {            
-            $doctorIds = Doctor::where('Specialization', $spec)->distinct()->pluck('DoctorId');
-            $visits = Visit::whereIn('DoctorId', $doctorIds)->where('VisitDate', '>=', $dzis)->orderBy('VisitDate', 'asc')->get();
-        }
-        else {
-            $spec = Doctor::select('Specialization')->distinct()->orderBy('Specialization', 'asc')->first();
-            $visits = Visit::all();
-        }
-        
-        $visits = $this->applyFilters($request);
-        //nie działa
-        //$visits = Visit::where('VisitDate', '>=', $dzis)->applyFilters($request)->orderBy('VisitDate', 'asc')->get();
 
-        return view('visits.bookVisit', ['visits'=>$visits, 'days'=>$days, 'specializations'=>$specs, 'spec'=>$spec]);
+        $visits = $this->applyFilters($request);
+
+        return view('visits.bookVisit', ['visits'=>$visits, 'days'=>$days, 'specializations'=>$specs]);
     }
 
     public function applyFilters(Request $request) {
