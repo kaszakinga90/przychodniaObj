@@ -11,7 +11,7 @@
 
                 <div class="col-12 position-relative py-2">
                     <div class="form-floating">
-                        <input type="text" class="form-control @error('login') is-invalid @enderror" name="login" value='{{ Auth::user()->login }}' id="login" placeholder="login">
+                        <input type="text" class="form-control @error('login') is-invalid @enderror" name="login" value='{{ Auth::user()->login }}' id="login" placeholder="login" disabled>
                             @if ($errors->has('login'))
                                 <span class="text-danger">{{ $errors->first('login') }}</span>
                             @endif
@@ -41,7 +41,7 @@
                         <input type="text" class="form-control" name="BirthDate" value='{{ Auth::user()->BirthDate }}' id="BirthDate" placeholder="BirthDate">
                             @if ($errors->has('BirthDate'))
                                 <span class="text-danger">{{ $errors->first('BirthDate') }}</span>
-                            @endif 
+                            @endif
                         <label for="BirthDate" class="form-label">Data urodzenia (yyyy-mm-dd)</label>
                     </div>
                 </div>
@@ -50,22 +50,22 @@
                         <input type="text" class="form-control @error('PESEL') is-invalid @enderror" name="PESEL" value='{{ Auth::user()->PESEL }}' id="PESEL" placeholder="PESEL">
                             @if ($errors->has('PESEL'))
                                 <span class="text-danger">{{ $errors->first('PESEL') }}</span>
-                            @endif                    
+                            @endif
                         <label for="PESEL" class="form-label">PESEL</label>
                     </div>
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Zapisz</button>
                 </div>
-                
+
             </form>
 
-            <div>Uwaga: ta operacja będzie nieodwracalna!</div>
+            <div class="mt-5">Uwaga: ta operacja będzie nieodwracalna!</div>
             <div class="col-12">
                 <form method="POST" action="{{ route('patients.delete',  Auth::user()->id)   }}">
                     @csrf
                     @method('POST')
-                    <button class="btn btn-danger" type="submit">Usuń konto</button>
+                    <button class="btn btn-danger mt-3" type="submit">Usuń konto</button>
                 </form>
             </div>
     </div>

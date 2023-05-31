@@ -51,14 +51,26 @@ class DocumentController extends Controller
     }
 
 
-    public function showReferrals() {
+    public function showReferrals(Request $request) {
         $user = Auth::user()->getAuthIdentifier();
 
         $referrals = Document::where('Type', 'skierowanie')
-            ->where('PatientId', $user)
-            ->get();
+            ->where('PatientId', $user);
 
-        return view('documents.showReferrals')->with('referrals', $referrals);
+        // Filtrowanie po lekarzu
+        if ($request->has('doctor')) {
+            $doctorId = $request->input('doctor');
+            $referrals->where('DoctorId', $doctorId);
+        }
+
+
+        $referrals = $referrals->get();
+
+        $doctors = Doctor::all();
+
+
+        //return view('documents.showReferrals')->with('referrals', $referrals);
+        return view('documents.showReferrals', compact('referrals', 'doctors'));
     }
 
 
