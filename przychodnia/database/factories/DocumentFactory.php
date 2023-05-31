@@ -22,12 +22,11 @@ class DocumentFactory extends Factory
      */
     public function definition()
     {
-//        $faker = FakerFactory::create();
 
         return [
             'Type' => $this->faker->randomElement(['recepta', 'skierowanie']),
-            'DoctorId' => $this->faker->randomElement([1, 3, 4, 5]),
-            'PatientId' => $this->faker->randomElement([1, 11, 16]),
+            'DoctorId' => $this->faker->randomElement([1, 3, 4, 5, 7]),
+            'PatientId' => $this->faker->randomElement([1, 5, 13]),
             'IssueDate' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'Signature' => $this->faker->lexify('??????????'),
         ];
