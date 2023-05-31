@@ -56,7 +56,7 @@ class LoginRegisterController extends Controller
         Auth::attempt($credentials);
         $request->session()->regenerate();
         return redirect()->route('dashboard')
-        ->withSuccess('You have successfully registered & logged in!');
+        ->withSuccess('Pomyślnie zarejestrowano i zalogowano');
     }
 
     /**
@@ -126,6 +126,6 @@ class LoginRegisterController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-            ->withSuccess('You have logged out successfully!');
+            ->withSuccess('Pomyślnie wylogowano z serwisu!');
     }
 }

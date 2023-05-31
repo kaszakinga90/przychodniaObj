@@ -34,7 +34,6 @@ use App\Http\Controllers\PatientController;
 Route::controller(PatientController::class)->group(function() {
     Route::get('/patients/{patient}/edit', 'edit')->name('patients.edit');
     Route::post('/patients/{patient}', 'update')->name('patients.update');
-    //Route::delete('/patients/{patient}', 'destroy')->name('patients.destroy');
     Route::post('/patients/{patient}/delete', 'delete')->name('patients.delete');
 });
 
@@ -51,9 +50,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 use App\Http\Controllers\DocumentController;
-//Route::get('/documents/showPrescriptions', [DocumentController::class, 'showPrescriptions']);
 Route::get('/documents/showReferrals', [DocumentController::class, 'showReferrals'])->name('documents.showReferrals');
-
 Route::get('/documents/showPrescriptions', [DocumentController::class, 'showPrescriptions'])->name('documents.showPrescriptions');
 
 use App\Http\Controllers\FacilitiesController;

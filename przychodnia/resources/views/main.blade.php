@@ -5,27 +5,8 @@
 
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-{{--			<link href="./style.css" rel="stylesheet">--}}
             <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 		</head>
-
-{{--		<header style="box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.239);">--}}
-
-{{--			<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white;">--}}
-{{--				<div class="container-fluid px-4 py-2 navCont">--}}
-{{--				  <a class="navbar-brand" href='/'>--}}
-{{--					<h3 class="offcanvas-title ps-4"><i class="bi bi-brightness-high fs-3 pt-0 pe-3"></i>Promyczek</h3>--}}
-{{--				  </a>--}}
-
-{{--				  <!-- user section -->--}}
-{{--				  <div class="btn-group ">--}}
-{{--					<button type="button pt-0" class="btn fs-4 mx-0">--}}
-{{--					  <a class="dropdown-item fs-4" style="color:#5d6778" href='/login'><i class="bi bi-person-circle pt-0 fs-3 pe-3" style="color:#5d6778"></i>Zaloguj się</a>--}}
-{{--					</button>--}}
-{{--				  </div>--}}
-{{--				</div>--}}
-{{--			</nav>--}}
-{{--		</header>--}}
 
         <header class="headerSettings">
 
@@ -73,9 +54,6 @@
                                     <a class="nav-link" href="/facilities/showFacilities"><i class="bi bi-houses me-2"></i>Nasze placówki</a>
                                 </li>
                                 <hr class="my-1" style="width: 50%;">
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link" href="autor.php"><i class="bi bi-houses me-2"></i>Autor</a>--}}
-{{--                                </li>--}}
                             </ul>
                         </div>
                     </div>
@@ -113,9 +91,6 @@
                                 <li class="nav-item">
                                 <a class="nav-link" href="/facilities/showFacilities"><i class="bi bi-houses me-2 ps-3"></i>Nasze placówki</a>
                                 </li>
-{{--                                <li class="nav-item">--}}
-{{--                                <a class="nav-link" href="autor.php"><i class="bi bi-houses me-2 ps-3"></i>Autor</a>--}}
-{{--                                </li>--}}
                             </span>
                         </ul>
                     </div>
@@ -156,7 +131,6 @@
 
 
 		<body class="bodySettings">
-{{--        <div class="container mainContainer d-flex py-3">--}}
         <div class="container mainContainer mx-auto py-3">
 
             <!-- Main content for site -->
@@ -166,16 +140,6 @@
             <!-- End of main content for site -->
 
         </div>
-
-
-{{--			<main>--}}
-{{--				<hr>--}}
-{{--					<center>--}}
-{{--						@yield('content')		--}}{{-- pozwala wstrzykiwać zależność (inne widoki) --}}
-{{--					</center>--}}
-{{--				<hr>--}}
-{{--			</main>--}}
-
 
         </body>
 
