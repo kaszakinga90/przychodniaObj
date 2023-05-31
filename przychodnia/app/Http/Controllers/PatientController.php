@@ -14,7 +14,7 @@ class PatientController extends Controller
     {
         $this->middleware('auth');
     }
-    //TODO    - metoda wyswietlajaca liste pacjentów
+
     public function index()
     {
         $patients = Patient::all();

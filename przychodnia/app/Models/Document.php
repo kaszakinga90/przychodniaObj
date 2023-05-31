@@ -26,9 +26,5 @@ class Document extends Model
     public function doctor() {
         return $this->belongsTo(Doctor::class, 'DoctorId');
     }
-    //Metoda zwraca wszystkich lekarzy
-//    public function doctors() {
-//        return Doctor::all();
-//    }
 
 }

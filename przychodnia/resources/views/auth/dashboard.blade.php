@@ -11,7 +11,7 @@
                 </div>
             @else
                 <div class="alert alert-success">
-                    You are logged in!
+                    Pomyślnie zalogowano!
                 </div>
 
             @endif

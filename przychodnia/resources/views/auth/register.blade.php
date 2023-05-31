@@ -4,7 +4,7 @@
 
     <div>
         <div class="col-sm-8 col-md-6 col-xl-4 mx-auto ">
-            <h1 class="pb-4 pt-2 titleOfPage">Register</h1>
+            <h1 class="pb-4 pt-2 titleOfPage">Rejestracja</h1>
         </div>
         <div class="col-sm-8 col-md-6 col-xl-4 mx-auto ">
             <form action="{{ route('store') }}" method="post" class="row g-3 ">
@@ -42,7 +42,7 @@
                         @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                         @endif
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Hasło</label>
                     </div>
                 </div>
                 <div class="col-12 position-relative">
@@ -61,7 +61,7 @@
             </form>
         </div>
         <div class="col-sm-8 col-md-6 col-xl-4 mx-auto pt-5">
-            <a href='/login'>Already have an account? Login -></a>
+            <a href='/login'>Masz już konto? Zaloguj się -></a>
         </div>
     </div>
 

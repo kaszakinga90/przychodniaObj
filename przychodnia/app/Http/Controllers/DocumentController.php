@@ -14,19 +14,6 @@ class DocumentController extends Controller
         $this->middleware('auth');
     }
 
-//    public function showPrescriptions() {
-//
-//        $user = Auth::user()->getAuthIdentifier();
-//        //$userId = $user->id;
-//
-//        $prescriptions = Document::where('Type', 'recepta')
-//                                ->where('PatientId', $user)
-//                                ->get();
-//
-//        //return view('documents.showPrescriptions', ['$prescriptions'=>$prescriptions]);
-//        return view('documents.showPrescriptions')->with('prescriptions', $prescriptions);
-//    }
-
     public function showPrescriptions(Request $request) {
 
         $user = Auth::user()->getAuthIdentifier();
@@ -41,15 +28,12 @@ class DocumentController extends Controller
             $prescriptions->where('DoctorId', $doctorId);
         }
 
-
         $prescriptions = $prescriptions->get();
 
         $doctors = Doctor::all();
 
         return view('documents.showPrescriptions', compact('prescriptions', 'doctors'));
-
     }
-
 
     public function showReferrals(Request $request) {
         $user = Auth::user()->getAuthIdentifier();
@@ -63,16 +47,12 @@ class DocumentController extends Controller
             $referrals->where('DoctorId', $doctorId);
         }
 
-
         $referrals = $referrals->get();
 
         $doctors = Doctor::all();
 
-
         //return view('documents.showReferrals')->with('referrals', $referrals);
         return view('documents.showReferrals', compact('referrals', 'doctors'));
     }
-
-
 
 }

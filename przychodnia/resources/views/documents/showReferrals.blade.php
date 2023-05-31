@@ -30,7 +30,7 @@
 
         <div class="row mt-4">
             @if($referrals->isEmpty())
-                <p>No results found</p>
+                <p>Brak wyników</p>
             @else
                 <table class="table table-hover mt-4">
                     <thead>
